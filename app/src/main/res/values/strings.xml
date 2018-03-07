@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">String==Palindrom</string>
+
+    <string name="Palindrom">Palindrom</string>
+    <string name="StringP">Eingabe String:</string>
+    <string name="Info">User Information:</string>
+    <string name="MyPalindrom">Check String!</string>
+
+
+</resources>
+
+
