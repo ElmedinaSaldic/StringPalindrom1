@@ -18,13 +18,13 @@ public class MainActivity extends AppCompatActivity {
 
         final TextView Info = (TextView) findViewById(R.id.Info);
         Button MyPalindrom = (Button) findViewById(R.id.MyPalindrom);
-        @SuppressLint("WrongViewCast") final EditText StringP = (EditText) findViewById(R.id.StringP);
+        final EditText StringPalindrom = (EditText) findViewById(R.id.StringPalindrom);
 
         MyPalindrom.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                String input = StringP.getText().toString();
+                String input = StringPalindrom.getText().toString();
 
                 if(input == null || input.equals("")){
                     Info.setText("Keine Eingabe getätigt!");
