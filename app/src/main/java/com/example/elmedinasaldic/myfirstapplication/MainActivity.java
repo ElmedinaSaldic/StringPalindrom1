@@ -1,5 +1,7 @@
 package com.example.elmedinasaldic.myfirstapplication;
 
+import android.annotation.SuppressLint;
+import android.icu.text.IDNA;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,17 +15,35 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String StringP;
 
+        final TextView Info = (TextView) findViewById(R.id.Info);
+        Button MyPalindrom = (Button) findViewById(R.id.MyPalindrom);
+        @SuppressLint("WrongViewCast") final EditText StringP = (EditText) findViewById(R.id.StringP);
+
+        MyPalindrom.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                String input = StringP.getText().toString();
+
+                if(input == null || input.equals("")){
+                    Info.setText("Keine Eingabe getätigt!");
+                }else {
+                    if (input.length() >= 5) {
+                        if(isPalindrom(input.toLowerCase())){
+                            Info.setText("Es ist ein Palindrom");
+                        }else{
+                            Info.setText("Es ist kein Palindrom" + input);
+                        }
+                    } else {
+                        Info.setText("Zu wenig Zeichen!");
+                    }
+                }
+            }
+        });
     }
 
-    public void MyPalindrom(View v) { //OnClick
-
-        EditText StringP = (EditText) findViewById(R.id.StringPalindrom); //ID holen
-        EditText Info = (EditText) findViewById(R.id.Info);
-    }
-
-    public static boolean isPalindrome(String StringP) {
-        return StringP.equals(new StringBuilder(StringP).reverse().toString());
+    public static boolean isPalindrom(String str){
+        return str.equals(new StringBuilder(str).reverse().toString());
     }
 }
